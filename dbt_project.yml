@@ -46,7 +46,7 @@ models:
       +materialized: table
     compute:
       +schema: cmp
-      +materialized: view
+      +materialized: table
     datamart:
       +schema: dtm
       +materialized: table
