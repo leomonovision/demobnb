@@ -1,6 +1,7 @@
 #------------------------------------------------------------------------------
 # get environment variables
 #------------------------------------------------------------------------------
+import os
 api_base        = os.getenv('DBT_URL', 'https://cloud.getdbt.com/') # default to multitenant url
 job_cause       = os.getenv('DBT_JOB_CAUSE', 'API-triggered job') # default to generic message
 git_branch      = os.getenv('DBT_JOB_BRANCH', None) # default to None
