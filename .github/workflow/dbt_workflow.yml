@@ -1,12 +1,12 @@
-name: dbt CI/CD
+name: run dbt Cloud job on push
 
 on:
   push:
     branches:
       - main
 
-jobs:
-  build:
+  run_dbt_cloud_job:
+    name: Run dbt Cloud Job
     runs-on: ubuntu-latest
 
     steps:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: 3.9
 
       - name: Install dbt
         run: |
