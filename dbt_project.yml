@@ -38,15 +38,19 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   rbnb:
-    # Applies to all files under models/example/
-    example:
-      +materialized: table
     staging:
       +schema: stg
       +materialized: table
+      +docs:
+        node_color: "#cd7e32"
     compute:
       +schema: cmp
       +materialized: table
+      +docs:
+        node_color: "#0094b3"
+
     datamart:
       +schema: dtm
       +materialized: table
+      +docs:
+        node_color: "#00475c"
