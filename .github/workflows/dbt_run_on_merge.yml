@@ -13,6 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - uses: "actions/checkout@v3"
+      - uses: "actions/setup-python@v4"
+        with:
+          python-version: "3.9"
+          
+      - name: Run dbt Cloud job
+        run: "python python/run_and_monitor_dbt_job.py"
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -25,3 +32,11 @@ jobs:
 
       - name: Run dbt
         run: dbt run
+
+    env:
+      DBT_ACCOUNT_ID: 28297 # enter your account id
+      DBT_PROJECT_ID: 317706 # enter your project id
+      DBT_PR_JOB_ID:  461701 # enter your job id
+      DBT_API_KEY: ${{ secrets.DBT_API_KEY }}
+      DBT_JOB_CAUSE: 'GitHub Pipeline CI Job' 
+      DBT_JOB_BRANCH: ${{ github.ref_name }}
