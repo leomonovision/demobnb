@@ -27,10 +27,10 @@ jobs:
       - name: Run dbt Cloud job
         run: "python python/run_and_monitor_dbt_job.py"
 
-      - name: Install dbt
-        run: |
-          pip install dbt
-          dbt deps
+#      - name: Install dbt
+#        run: |
+#          pip install dbt
+#          dbt deps
 
-      - name: Run dbt
-        run: dbt run
+#      - name: Run dbt
+#        run: dbt run
